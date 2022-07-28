@@ -2,7 +2,13 @@
 	<h1>Form</h1>
 	<app-yes-no-button-group
 		[value]="yesNoAnswer"
+		(valueChange)="yesNoAnswer = $event"
 		label="Are you good enough with Angular?"
 	>
 	</app-yes-no-button-group>
+
+	<span>
+		yesNoAnswer value = {{yesNoAnswer}}
+	</span>
+
 </main>
