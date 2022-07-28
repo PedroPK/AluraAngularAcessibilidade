@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
 	selector: 'app-yes-no-button-group',
@@ -13,7 +13,23 @@ export class YesNoButtonGroupComponent implements OnInit {
 	@Input()
 	public label = '';
 
+	@Output()
+	public valueChange = new EventEmitter<string>();
+
+	public options = YesNoButtonGroupOptions;
+
 	constructor() {}
 
 	ngOnInit(): void {}
+
+	public activate(pValue: string): void {
+		this.value = pValue;
+		this.valueChange.emit(this.value);
+	}
+
+}
+
+enum YesNoButtonGroupOptions {
+	YES	= 'yes',
+	NO	= 'no'
 }
