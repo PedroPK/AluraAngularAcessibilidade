@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component }				from '@angular/core';
+import { FormBuilder, FormGroup }	from '@angular/forms';
 
 @Component({
 	selector: 'app-root',
@@ -8,5 +9,18 @@ import { Component } from '@angular/core';
 export class AppComponent {
 	title = 'a11y-p1';
 
-	public yesNoAnswer = 'no';
+	public form: FormGroup = null;
+
+	constructor(formBuilder: FormBuilder) {
+		// FormBuilder creates the Form
+		this.form = formBuilder.group({
+			// FormControl to represent a Field at Form
+			yesNoAnswer: ['no']
+		});
+	}
+
+	public submit(): void {
+		console.log(this.form.value);
+	}
+
 }
