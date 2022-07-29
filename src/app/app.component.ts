@@ -11,8 +11,6 @@ export class AppComponent {
 
 	public form: FormGroup = null;
 
-	public test: string = null;
-
 	constructor(formBuilder: FormBuilder) {
 		// FormBuilder creates the Form
 		this.form = formBuilder.group({
