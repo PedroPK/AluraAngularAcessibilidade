@@ -1,9 +1,11 @@
 <div
 	role="radiogroup"
 	class="button-group"
-	aria-labelledby="label"
+	[attr.aria-laballedby]="id"
 >
-	<label id="label" class="label">{{label}}</label>
+
+	<label [attr.id]="id" class="label">{{label}}</label>
+
 	<button
 		role="radio"
 		[attr.aria-checked]="value == options.YES"
@@ -13,6 +15,7 @@
 		(click)="activate(options.YES)">
 		Yes
 	</button>
+
 	<button
 		role="radio"
 		[attr.aria-checked]="value == options.NO"
@@ -22,4 +25,5 @@
 		(click)="activate(options.NO)">
 		No
 	</button>
+
 </div>
