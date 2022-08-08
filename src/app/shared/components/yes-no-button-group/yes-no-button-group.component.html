@@ -8,6 +8,7 @@
 	<label [attr.id]="id" class="label">{{label}}</label>
 
 	<button
+		appKeyboardManagedItem
 		role="radio"
 		[attr.aria-checked]="value == options.YES"
 		type="button"
@@ -18,6 +19,7 @@
 	</button>
 
 	<button
+		appKeyboardManagedItem
 		role="radio"
 		[attr.aria-checked]="value == options.NO"
 		type="button"
