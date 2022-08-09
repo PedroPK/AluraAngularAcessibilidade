@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component }				from '@angular/core';
 import { FormBuilder, FormGroup }	from '@angular/forms';
 
@@ -15,11 +16,17 @@ export class AppComponent {
 		// FormBuilder creates the Form
 		this.form = formBuilder.group({
 			// FormControl to represent a Field at Form
-			yesNoAnswer: ['no']
+			yesNoAnswer: [
+				{
+					value: null,
+					disabled: false
+				}
+			]
 		});
 	}
 
 	public submit(): void {
+		this.form.get('yesNoAnswer').disable();
 		console.log(this.form.value);
 	}
 

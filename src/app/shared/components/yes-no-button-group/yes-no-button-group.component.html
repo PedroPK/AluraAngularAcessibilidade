@@ -9,25 +9,33 @@
 
 	<button
 		appKeyboardManagedItem
-		(focused)="activate(options.YES)"
 		role="radio"
-		[attr.aria-checked]="value == options.YES"
 		type="button"
 		class="button button-yes"
+
+		[attr.disabled]="isDisabled ? isDisabled : null"
+		[attr.aria-checked]="value == options.YES"
 		[class.button-pressed]="value === options.YES"
-		(click)="activate(options.YES)">
+
+		(click)="activate(options.YES)"
+		(focused)="activate(options.YES)"
+	>
 		Yes
 	</button>
 
 	<button
 		appKeyboardManagedItem
-		(focused)="activate(options.NO)"
-		role="radio"
-		[attr.aria-checked]="value == options.NO"
-		type="button"
 		class="button button-no"
+		role="radio"
+		type="button"
+
+		[attr.disabled]="isDisabled ? isDisabled : null"
+		[attr.aria-checked]="value == options.NO"
 		[class.button-pressed]="value === options.NO"
-		(click)="activate(options.NO)">
+
+		(focused)="activate(options.NO)"
+		(click)="activate(options.NO)"
+	>
 		No
 	</button>
 
