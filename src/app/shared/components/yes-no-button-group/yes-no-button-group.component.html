@@ -1,4 +1,5 @@
 <div
+	appKeyboardManager
 	role="radiogroup"
 	class="button-group"
 	[attr.aria-laballedby]="id"
@@ -7,6 +8,8 @@
 	<label [attr.id]="id" class="label">{{label}}</label>
 
 	<button
+		appKeyboardManagedItem
+		(focused)="activate(options.YES)"
 		role="radio"
 		[attr.aria-checked]="value == options.YES"
 		type="button"
@@ -17,6 +20,8 @@
 	</button>
 
 	<button
+		appKeyboardManagedItem
+		(focused)="activate(options.NO)"
 		role="radio"
 		[attr.aria-checked]="value == options.NO"
 		type="button"
