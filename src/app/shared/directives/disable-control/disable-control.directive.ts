@@ -14,17 +14,13 @@ export class DisableControlDirective implements OnChanges {
 	) {}
 
 	public ngOnChanges(pChanges: SimpleChanges): void {
-		const ENABLED = 'enabled';
-		const DISABLED = 'disabled';
+		const ENABLE = 'enable';
+		const DISABLE = 'disable';
 
 		if ( pChanges.appDisableControl ) {
-			const action = this.appDisableControl ? DISABLED : ENABLED;
+			const action = this.appDisableControl ? DISABLE : ENABLE;
 
-			if ( action === DISABLED ) {
-				this.ngControl.control.disable();
-			} else if ( action === ENABLED ) {
-				this.ngControl.control.enable();
-			}
+			this.ngControl.control[action]();
 		}
 	}
 
